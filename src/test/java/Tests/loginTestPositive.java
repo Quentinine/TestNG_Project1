@@ -13,7 +13,7 @@ import java.time.Duration;
 
 public class loginTestPositive extends Functions {
 
-    @Test
+    @Test(groups = {"smoke", "login"})
     @Parameters({"usernameSend", "passSend"})
     public void loginTestR(String usernameSend, String passSend) {
 
@@ -41,7 +41,7 @@ public class loginTestPositive extends Functions {
 
     }
 
-    @Test(dependsOnMethods = {"loginTestR"})
+    @Test(dependsOnMethods = {"loginTestR"}, groups = {"smoke", "logout"})
     public void logouttest() {
 
         loginPage page = new loginPage(driver);

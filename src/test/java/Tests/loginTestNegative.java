@@ -20,7 +20,7 @@ public class loginTestNegative extends Functions {
         };
     }
 
-    @Test(dataProvider = "logindata")
+    @Test(dataProvider = "logindata", groups = {"login", "smoke"})
     public void loginTestW(String usernameSend, String passSend) {
 
         loginPage page = new loginPage(driver);
