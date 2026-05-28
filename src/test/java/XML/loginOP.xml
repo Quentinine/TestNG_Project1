@@ -1,0 +1,19 @@
+<suite name="Login operations">
+    <test name="Positive login test">
+        <parameter name="usernameSend" value="admin"/>
+        <parameter name="passSend" value="Admin123"/>
+        <classes>
+            <class name="Tests.loginTestPositive"/>
+        </classes>
+    </test>
+    <test name="Negative login test">
+        <classes>
+            <class name="Tests.loginTestNegative"/>
+        </classes>
+    </test>
+    <test name="Login without necessary click">
+        <classes>
+            <class name="Tests.loginTestLoc"/>
+        </classes>
+    </test>
+</suite>
