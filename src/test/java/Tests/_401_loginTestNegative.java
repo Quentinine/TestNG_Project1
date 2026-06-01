@@ -6,7 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class loginTestNegative extends Functions {
+public class _401_loginTestNegative extends Functions {
 
     @DataProvider(name = "logindata")
     public Object[][] getData() {

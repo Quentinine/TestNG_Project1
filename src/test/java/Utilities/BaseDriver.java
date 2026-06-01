@@ -1,13 +1,20 @@
 package Utilities;
 
+import Pages.loginPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 import java.time.Duration;
+import java.util.List;
 
 public class BaseDriver {
 
@@ -38,4 +45,33 @@ public class BaseDriver {
 
     }
 
+    // farklı bir classtan metoda dependant ise depends yerine dependongroups kullanırız.
+    public void loginOP() {
+
+        loginPage page = new loginPage(driver);
+        driver.get("https://openmrs.org/");
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.elementToBeClickable(page.demo));
+
+        page.demo.click();
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true)", page.scrollToE);
+
+        wait.until(ExpectedConditions.elementToBeClickable(page.scrollToE));
+
+        page.scrollToE.click();
+
+        page.login.sendKeys("admin");
+        page.password.sendKeys("Admin123");
+
+        List<WebElement> locations = driver.findElements(By.xpath("//*[@tabindex]"));
+        int rasgele = (int) (Math.random() * locations.size());
+        WebElement randomElement = locations.get(rasgele);
+        randomElement.click();
+
+        page.loginButton.click();
+
+    }
 }

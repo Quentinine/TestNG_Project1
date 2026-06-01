@@ -5,7 +5,7 @@ import Utilities.Functions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class loginTestLoc extends Functions {
+public class _403_loginTestLoc extends Functions {
 
     @Test(groups = {"smoke", "login"})
     public void loginWithoutLoc() {
