@@ -1,0 +1,12 @@
+<suite name="Hasta Kayit">
+    <test name="Hasta kaydi">
+        <parameter name="name" value="Charlie"/>
+        <parameter name="surname" value="Brown"/>
+        <parameter name="day" value="11"/>
+        <parameter name="month" value="10"/>
+        <parameter name="year" value="1999"/>
+        <classes>
+            <class name="Tests._404_hastaKayit"/>
+        </classes>
+    </test>
+</suite>
