@@ -4,6 +4,7 @@ import Utilities.Functions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -36,7 +37,23 @@ public class _405_hesabım extends Functions {
         WebElement disp = wait.until(ExpectedConditions.visibilityOfElementLocated(
                 By.xpath("//li[normalize-space()='My Account']/i")));
 
-        Assert.assertTrue(disp.isDisplayed());
+        WebElement changePass = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//*[@class='task'])[1]")));
+        changePass.click();
+
+        driver.navigate().back();
+
+        WebElement myLan = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//*[@class='task'])[2]")));
+        myLan.click();
+
+        driver.navigate().back();
+        Thread.sleep(2000);
+
+        changePass = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//*[@class='task'])[1]")));
+        myLan = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//*[@class='task'])[2]")));
+
+        Assert.assertTrue(changePass.isDisplayed() && myLan.isDisplayed());
+
+        //eger sayfa değişirse selenium için eski tanımlanmıs deger bayatlamıştır kullanolabilmesi için tekrar tanımlanması gerekir
     }
 
 }
