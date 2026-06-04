@@ -2,6 +2,7 @@ package Tests;
 
 import Pages.loginPage;
 import Utilities.Functions;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -11,11 +12,17 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
+import static org.apache.logging.log4j.LogManager.getLogger;
+
 public class _402_loginTestPositive extends Functions {
+
+    private static final Logger logger = getLogger(_402_loginTestPositive.class);
 
     @Test(groups = {"smoke", "login"})
     @Parameters({"usernameSend", "passSend"})
     public void loginTestR(String usernameSend, String passSend) {
+
+        logger.info("Doğru bir şekilde giriş yapıldı");
 
         loginPage pageL = new loginPage(driver);
         driver.get("https://openmrs.org/");

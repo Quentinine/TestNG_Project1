@@ -9,14 +9,4 @@
             <class name="Tests._402_loginTestPositive"/>
         </classes>
     </test>
-    <test name="Negative login test">
-        <classes>
-            <class name="Tests._401_loginTestNegative"/>
-        </classes>
-    </test>
-    <test name="Login without necessary click">
-        <classes>
-            <class name="Tests._403_loginTestLoc"/>
-        </classes>
-    </test>
 </suite>

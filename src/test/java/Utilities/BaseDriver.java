@@ -2,6 +2,8 @@ package Utilities;
 
 import Pages.loginPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -21,8 +23,12 @@ public class BaseDriver {
     public WebDriver driver;
     public WebDriverWait wait;
 
+    private static final Logger logger = LogManager.getLogger(BaseDriver.class);
+
     @BeforeClass
     public void initialOP() {
+
+        logger.trace("Web sitesine giriş yapıldı.");
 
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
