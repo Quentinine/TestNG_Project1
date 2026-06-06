@@ -20,7 +20,7 @@ public class _401_loginTestNegative extends Functions {
         };
     }
 
-    @Test(dataProvider = "logindata", groups = {"login", "smoke"})
+    @Test(dataProvider = "ogindata", groups = {"Login", "Smoke"})
     public void loginTestW(String usernameSend, String passSend) {
 
         loginPage page = new loginPage(driver);

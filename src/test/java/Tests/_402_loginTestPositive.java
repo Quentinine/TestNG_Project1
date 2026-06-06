@@ -18,7 +18,7 @@ public class _402_loginTestPositive extends Functions {
 
     private static final Logger logger = getLogger(_402_loginTestPositive.class);
 
-    @Test(groups = {"smoke", "login"})
+    @Test(groups = {"Smoke", "Login"})
     @Parameters({"usernameSend", "passSend"})
     public void loginTestR(String usernameSend, String passSend) {
 
@@ -48,7 +48,7 @@ public class _402_loginTestPositive extends Functions {
 
     }
 
-    @Test(dependsOnMethods = {"loginTestR"}, groups = {"smoke", "logout"})
+    @Test(dependsOnMethods = {"loginTestR"}, groups = {"Smoke", "Logout"})
     public void logouttest() {
 
         loginPage page = new loginPage(driver);

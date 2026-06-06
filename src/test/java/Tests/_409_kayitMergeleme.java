@@ -25,19 +25,17 @@ public class _409_kayitMergeleme extends Functions {
 
         WebElement patient1 = wait.until(ExpectedConditions.elementToBeClickable
                 (By.xpath("//tr[@class=\"odd\"][1]")));
-
-        Thread.sleep(3000);
         patient1.click();
-
-        String patient2Text = wait.until(ExpectedConditions.elementToBeClickable
-                (By.xpath("#patient-search-results-table tbody tr:nth-child(2) td:first-child"))).getText();
-
-        driver.findElement(By.cssSelector("#patient2-text")).sendKeys(patient2Text);
-
+        WebElement patient2 = wait.until(ExpectedConditions.elementToBeClickable
+                (By.xpath("//tr[@class=\"even\"][1]")));
+        patient2.click();
+        WebElement patient3 = wait.until(ExpectedConditions.elementToBeClickable
+                (By.xpath("//tr[@class=\"odd\"][2]")));
+        patient3.click();
 
         wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#confirm-button"))).click();
-        //driver.findElement(By.xpath("//*[@id = 'first-patient']")).click();
-        //driver.findElement(By.xpath("//*[@id = 'confirm-button']")).click();
+        driver.findElement(By.xpath("//*[@id = 'first-patient']")).click();
+        driver.findElement(By.xpath("//*[@id = 'confirm-button']")).click();
 
         Assert.assertTrue(driver.getCurrentUrl().contains("patientdashboard"));
 

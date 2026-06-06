@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 public class _403_loginTestLoc extends Functions {
 
-    @Test(groups = {"smoke", "login"})
+    @Test(groups = {"Smoke", "Login"})
     public void loginWithoutLoc() {
 
         loginPage page = new loginPage(driver);
