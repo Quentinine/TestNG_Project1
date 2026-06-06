@@ -80,4 +80,10 @@ public class BaseDriver {
         page.loginButton.click();
 
     }
+
+    public void logoutOP() {
+        driver.quit();
+    }
 }
+
+
