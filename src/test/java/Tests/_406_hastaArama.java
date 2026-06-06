@@ -33,6 +33,9 @@ public class _406_hastaArama extends Functions {
                 (By.xpath("//*[@class =\"odd\"][1]")));
         firstPatient.click();
 
+        String currentUrl = driver.getCurrentUrl();
+        Assert.assertTrue(currentUrl.contains("patient.page"));
+
     }
 
     @Test(groups = "PatientManagement", priority = 2)
@@ -49,6 +52,7 @@ public class _406_hastaArama extends Functions {
         WebElement findPatient = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input#patient-search")));
         findPatient.sendKeys("555555");
 
+        // wait kütüphanesi cok önemli
 
         String condition = "No matching records found";
         wait.until(ExpectedConditions.textToBePresentInElementLocated(By.cssSelector(".dataTables_empty"), condition));
