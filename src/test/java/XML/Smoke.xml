@@ -5,8 +5,14 @@
     <test name="smoke">
         <groups>
             <run>
-                <include name="smoke"/>
+                <include name="Smoke"/>
             </run>
         </groups>
+        <packages>
+            <package name="Tests"></package>
+        </packages>
+        <classes>
+            <class name="Utilities.BaseDriver"></class>
+        </classes>
     </test>
 </suite>
