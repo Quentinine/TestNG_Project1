@@ -1,5 +1,6 @@
 package Tests;
 
+import Pages.hastaAramaPage;
 import Utilities.Functions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -23,12 +24,12 @@ public class _408_hastaListeleme extends Functions {
     public void hastaListeleme() throws InterruptedException {
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        hastaAramaPage page = new hastaAramaPage(driver);
 
-        WebElement findRec = wait.until(ExpectedConditions.elementToBeClickable
-                (By.cssSelector("#coreapps-activeVisitsHomepageLink-coreapps-activeVisitsHomepageLink-extension")));
+        WebElement findRec = wait.until(ExpectedConditions.elementToBeClickable(page.findrec));
         findRec.click();
 
-        WebElement findPatient = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input#patient-search")));
+        WebElement findPatient = wait.until(ExpectedConditions.elementToBeClickable(page.findpatient));
         findPatient.sendKeys("jo");
 
         Thread.sleep(3000);
@@ -38,28 +39,29 @@ public class _408_hastaListeleme extends Functions {
 
         while (button) {
 
-            List<WebElement> patients = driver.findElements(By.cssSelector("tbody tr"));
+            List<WebElement> patients = page.patients;
 
             patientCount += patients.size();
 
-            WebElement next = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#patient-search-results-table_next")));
+            WebElement next = wait.until(ExpectedConditions.elementToBeClickable(page.next));
             String nextButtonClass = next.getAttribute("class");
 
             if (!nextButtonClass.contains("disabled")) {
                 next.click();
-                wait.until(ExpectedConditions.elementToBeClickable((By.xpath("//*[@class =\"odd\"][1]"))));
+                wait.until(ExpectedConditions.elementToBeClickable((page.expCon)));
                 System.out.println(patientCount);
 
             } else button = false;
 
         }
 
-        String[] expectedString = driver.findElement(By.cssSelector("#patient-search-results-table_info")).getText().split(" ");
+        String[] expectedString = page.expString.getText().split(" ");
         int expected = Integer.parseInt(expectedString[5]);
 
         Assert.assertEquals(patientCount, expected);
 
-        //getattribute ve contains onemli, (attribute string olarak mı alıyor? list yapma tekrar  bak, ), parseint, containsli xpath bide birdne fazla alma notlara ekle
+        //getattribute ve contains onemli, (attribute string olarak mı alıyor?
+        // list yapma tekrar  bak, ), parseint, containsli xpath bide birdne fazla alma notlara ekle
 
     }
 
