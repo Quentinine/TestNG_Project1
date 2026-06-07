@@ -25,7 +25,7 @@ public class BaseDriver {
 
     private static final Logger logger = LogManager.getLogger(BaseDriver.class);
 
-    @BeforeClass
+    @BeforeClass(alwaysRun = true)
     public void initialOP() {
 
         logger.trace("Web sitesine giriş yapıldı.");
@@ -42,7 +42,7 @@ public class BaseDriver {
 
     }
 
-    @AfterClass
+    @AfterClass(alwaysRun = true)
     public void finalOP() throws InterruptedException {
 
         Thread.sleep(3000);

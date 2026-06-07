@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 
-<suite name="smokeTest">
-    <test name="smoke">
-        <parameter name="usernameSend" value="admin"/>
-        <parameter name="passSend" value="Admin123"/>
+<suite name="regressionTest">
+    <test name="regression">
+        <parameter name="name" value="Gamze"/>
+        <parameter name="surname" value="ozak"/>
+        <parameter name="day" value="10"/>
+        <parameter name="month" value="6"/>
+        <parameter name="year" value="1999"/>
         <groups>
             <run>
-                <include name="Smoke"/>
+                <include name="Regression"/>
             </run>
         </groups>
         <packages>

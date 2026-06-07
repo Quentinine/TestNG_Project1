@@ -13,12 +13,12 @@ import java.time.Duration;
 
 public class _410_yanlisSaat extends Functions {
 
-    @BeforeClass
+    @Test(alwaysRun = true)
     public void login() {
         loginOP();
     }
 
-    @Test(groups = {"Regression", "Appointment"})
+    @Test(groups = {"Regression", "Appointment"},dependsOnMethods = "login")
     public void yanlisSaat() throws InterruptedException {
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));

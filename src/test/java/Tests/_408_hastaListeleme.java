@@ -6,7 +6,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.awt.*;
@@ -15,12 +14,12 @@ import java.util.List;
 
 public class _408_hastaListeleme extends Functions {
 
-    @BeforeClass
+    @Test(alwaysRun = true)
     public void login() {
         loginOP();
     }
 
-    @Test(groups = {"Regression", "PatientManagement"})
+    @Test(groups = {"Regression", "PatientManagement"}, dependsOnMethods = "login")
     public void hastaListeleme() throws InterruptedException {
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));

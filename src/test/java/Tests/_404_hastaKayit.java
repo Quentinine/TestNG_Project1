@@ -13,12 +13,12 @@ import java.time.Duration;
 
 public class _404_hastaKayit extends Functions {
 
-    @BeforeClass // once parent calısır sonra child yani once basedriver icerisindeki calısır sonra bu.
+    @Test(alwaysRun = true) // once parent calısır sonra child yani once basedriver icerisindeki calısır sonra bu.
     public void login() {
         loginOP();
     }
 
-    @Test(groups = "Regression")
+    @Test(groups = "Regression", dependsOnMethods = "login")
     @Parameters({"name", "surname", "day", "month", "year"})
     public void hastaKayit(String name, String surname, String day, String month, String year) {
         hastaPage pageH = new hastaPage(driver);

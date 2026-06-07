@@ -5,17 +5,16 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class _409_kayitMergeleme extends Functions {
 
-    @BeforeClass
+    @Test(alwaysRun = true)
     public void login() {
         loginOP();
     }
 
-    @Test(groups = {"Regression", "PatientManagement"})
+    @Test(groups = {"Regression", "PatientManagement"},dependsOnMethods = "login")
     public void kayitMerge() throws InterruptedException {
 
         driver.findElement(By.cssSelector("#coreapps-datamanagement-homepageLink-coreapps-datamanagement-homepageLink-extension")).click();

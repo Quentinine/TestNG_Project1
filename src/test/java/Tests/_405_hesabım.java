@@ -14,12 +14,12 @@ import java.time.Duration;
 
 public class _405_hesabım extends Functions {
 
-    @BeforeClass
+    @Test(alwaysRun = true)
     public void login() {
         loginOP();
     }
 
-    @Test(groups = "Smoke")
+    @Test(groups = "Smoke", dependsOnMethods = "login")
     public void hesabaGiris() throws InterruptedException {
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));

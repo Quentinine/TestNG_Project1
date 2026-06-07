@@ -12,12 +12,12 @@ import java.time.Duration;
 
 public class _406_hastaArama extends Functions {
 
-    @BeforeClass
+    @Test(alwaysRun = true)
     public void login() {
         loginOP();
     }
 
-    @Test(groups = "PatientManagement", priority = 1)
+    @Test(groups = "PatientManagement", priority = 1, dependsOnMethods = "login")
     public void hastaAramaPos() {
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -38,7 +38,7 @@ public class _406_hastaArama extends Functions {
 
     }
 
-    @Test(groups = "PatientManagement", priority = 2)
+    @Test(groups = "PatientManagement", priority = 2, dependsOnMethods = "login")
     public void hastaAramaNeg() throws InterruptedException {
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));

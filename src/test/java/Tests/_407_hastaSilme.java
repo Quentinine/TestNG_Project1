@@ -13,12 +13,12 @@ import java.time.Duration;
 
 public class _407_hastaSilme extends Functions {
 
-    @BeforeClass
+    @Test(alwaysRun = true)
     public void login() {
         loginOP();
     }
 
-    @Test(groups = {"PatientManagement", "Smoke"})
+    @Test(groups = {"PatientManagement", "Smoke"}, dependsOnMethods = "login")
     public void hastaSilme() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
