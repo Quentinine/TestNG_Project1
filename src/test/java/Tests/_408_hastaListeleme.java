@@ -2,7 +2,7 @@ package Tests;
 
 import Pages.hastaAramaPage;
 import Utilities.Functions;
-import org.openqa.selenium.By;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -13,7 +13,11 @@ import java.awt.*;
 import java.time.Duration;
 import java.util.List;
 
+import static org.apache.logging.log4j.LogManager.getLogger;
+
 public class _408_hastaListeleme extends Functions {
+
+    private static final Logger logger = getLogger(_408_hastaListeleme.class);
 
     @Test(alwaysRun = true)
     public void login() {
@@ -22,6 +26,8 @@ public class _408_hastaListeleme extends Functions {
 
     @Test(groups = {"Regression", "PatientManagement"}, dependsOnMethods = "login")
     public void hastaListeleme() throws InterruptedException {
+
+        logger.info("Hasta listeleme tamamlandı");
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         hastaAramaPage page = new hastaAramaPage(driver);
@@ -52,7 +58,6 @@ public class _408_hastaListeleme extends Functions {
                 System.out.println(patientCount);
 
             } else button = false;
-
         }
 
         String[] expectedString = page.expString.getText().split(" ");
@@ -62,7 +67,5 @@ public class _408_hastaListeleme extends Functions {
 
         //getattribute ve contains onemli, (attribute string olarak mı alıyor?
         // list yapma tekrar  bak, ), parseint, containsli xpath bide birdne fazla alma notlara ekle
-
     }
-
 }

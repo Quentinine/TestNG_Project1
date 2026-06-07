@@ -13,7 +13,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
 
 import java.time.Duration;
 import java.util.List;
@@ -72,17 +71,13 @@ public class BaseDriver {
         page.login.sendKeys("admin");
         page.password.sendKeys("Admin123");
 
-        List<WebElement> locations = driver.findElements(By.xpath("//*[@tabindex]"));
+        List<WebElement> locations = page.locations;
         int rasgele = (int) (Math.random() * locations.size());
         WebElement randomElement = locations.get(rasgele);
         randomElement.click();
 
         page.loginButton.click();
 
-    }
-
-    public void logoutOP() {
-        driver.quit();
     }
 }
 

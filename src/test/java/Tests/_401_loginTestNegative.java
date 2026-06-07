@@ -2,11 +2,16 @@ package Tests;
 
 import Pages.loginPage;
 import Utilities.Functions;
+import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import static org.apache.logging.log4j.LogManager.getLogger;
+
 public class _401_loginTestNegative extends Functions {
+
+    private static final Logger logger = getLogger(_401_loginTestNegative.class);
 
     @DataProvider(name = "logindata")
     public Object[][] getData() {
@@ -22,6 +27,8 @@ public class _401_loginTestNegative extends Functions {
 
     @Test(dataProvider = "logindata", groups = {"Login", "Smoke"})
     public void loginTestW(String usernameSend, String passSend) {
+
+        logger.info("Negatif giriş testi bitti.");
 
         loginPage page = new loginPage(driver);
         driver.get("https://openmrs.org/");

@@ -22,7 +22,7 @@ public class _402_loginTestPositive extends Functions {
     @Parameters({"usernameSend", "passSend"})
     public void loginTestR(String usernameSend, String passSend) {
 
-        logger.info("Doğru bir şekilde giriş yapıldı");
+        logger.info("Pozitif giriş testi bitti.");
 
         loginPage pageL = new loginPage(driver);
         driver.get("https://openmrs.org/");
@@ -45,11 +45,12 @@ public class _402_loginTestPositive extends Functions {
         pageL.loginButton.click();
 
         Assert.assertTrue(pageL.logged.isDisplayed());
-
     }
 
     @Test(dependsOnMethods = {"loginTestR"}, groups = {"Smoke", "Logout"})
     public void logouttest() {
+
+        logger.info("Logout testi tamamlandı.");
 
         loginPage page = new loginPage(driver);
 

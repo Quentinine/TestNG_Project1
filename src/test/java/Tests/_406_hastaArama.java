@@ -2,9 +2,8 @@ package Tests;
 
 import Pages.hastaAramaPage;
 import Utilities.Functions;
-import org.openqa.selenium.By;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -12,7 +11,11 @@ import org.testng.annotations.*;
 
 import java.time.Duration;
 
+import static org.apache.logging.log4j.LogManager.getLogger;
+
 public class _406_hastaArama extends Functions {
+
+    private static final Logger logger = getLogger(_406_hastaArama.class);
 
     @Test(alwaysRun = true)
     public void login() {
@@ -21,6 +24,8 @@ public class _406_hastaArama extends Functions {
 
     @Test(groups = "PatientManagement", priority = 1, dependsOnMethods = "login")
     public void hastaAramaPos() {
+
+        logger.info("Pozitif hasta arama tamamlandı");
 
         hastaAramaPage page = new hastaAramaPage(driver);
 
@@ -37,11 +42,12 @@ public class _406_hastaArama extends Functions {
 
         String currentUrl = driver.getCurrentUrl();
         Assert.assertTrue(currentUrl.contains("patient.page"));
-
     }
 
     @Test(groups = "PatientManagement", priority = 2, dependsOnMethods = "login")
     public void hastaAramaNeg() throws InterruptedException {
+
+        logger.info("Negatif hasta arama tamamlandı.");
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
@@ -62,6 +68,5 @@ public class _406_hastaArama extends Functions {
         String found = wait.until(ExpectedConditions.visibilityOf((page.found))).getText();
 
         Assert.assertEquals(found, condition);
-
     }
 }

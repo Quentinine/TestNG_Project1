@@ -19,7 +19,7 @@ public class hastaAramaPage {
     @FindBy(css = "input#patient-search")
     public WebElement findpatient;
 
-    @FindBy(css = "//*[@class =\"odd\"][1]")
+    @FindBy(xpath = "//*[@class =\"odd\"][1]")
     public WebElement firstPatient;
 
     @FindBy(css = ".dataTables_empty")

@@ -2,18 +2,21 @@ package Tests;
 
 import Pages.hesabimPage;
 import Utilities.Functions;
-import org.openqa.selenium.By;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class _405_hesabım extends Functions {
+import static org.apache.logging.log4j.LogManager.getLogger;
+
+public class _405_hesabim extends Functions {
+
+    private static final Logger logger = getLogger(_405_hesabim.class);
 
     @Test(alwaysRun = true)
     public void login() {
@@ -22,6 +25,8 @@ public class _405_hesabım extends Functions {
 
     @Test(groups = "Smoke", dependsOnMethods = "login")
     public void hesabaGiris() throws InterruptedException {
+
+        logger.info("Hesaba giriş tamamlandı.");
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         hesabimPage page = new hesabimPage(driver);
@@ -54,5 +59,4 @@ public class _405_hesabım extends Functions {
 
         //eger sayfa değişirse selenium için eski tanımlanmıs deger bayatlamıştır kullılabilmesi için tekrar tanımlanması gerekir
     }
-
 }
