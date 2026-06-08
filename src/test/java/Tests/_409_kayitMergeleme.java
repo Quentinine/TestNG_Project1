@@ -31,12 +31,11 @@ public class _409_kayitMergeleme extends Functions {
 
         page.patientsearch.sendKeys("da");
 
+        Thread.sleep(1000);
         WebElement patient1 = wait.until(ExpectedConditions.elementToBeClickable(page.patient1));
         patient1.click();
         WebElement patient2 = wait.until(ExpectedConditions.elementToBeClickable(page.patient2));
         patient2.click();
-        WebElement patient3 = wait.until(ExpectedConditions.elementToBeClickable(page.patient3));
-        patient3.click();
 
         wait.until(ExpectedConditions.elementToBeClickable(page.confirmButton)).click();
         page.merge.click();

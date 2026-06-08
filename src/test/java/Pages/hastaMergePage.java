@@ -20,14 +20,11 @@ public class hastaMergePage {
     @FindBy(css = "#patient-search")
     public WebElement patientsearch;
 
-    @FindBy(xpath = "//tr[@class=\"odd\"][1]")
+    @FindBy(xpath = "//tr[@class=\"even\"][1]")
     public WebElement patient1;
 
-    @FindBy(xpath = "//tr[@class=\"even\"][1]")
-    public WebElement patient2;
-
     @FindBy(xpath = "//tr[@class=\"odd\"][2]")
-    public WebElement patient3;
+    public WebElement patient2;
 
     @FindBy(css = "#confirm-button")
     public WebElement confirmButton;
